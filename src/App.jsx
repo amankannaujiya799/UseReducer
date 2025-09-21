@@ -1,22 +1,23 @@
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 const counterReducer = () => {
 
 
 }
 function App() {
+  const [counterVal, setCounterVal] = useState(0);
 
-  const [counterVal, counterDispatch] = useReducer(counterReducer,0);
- const handleIncerment = () => {
-  console.log("Increment Clicked");
+  //const [counterVal, counterDispatch] = useReducer(counterReducer,0);
+    const handleIncerment = () => {
+ setCounterVal(current => current + 1);
 }
 const handleDecrement = () => {
-  console.log("IDecrement Clicked");
-
+  
+ setCounterVal(current => current - 1);
 }
   return (
     <>
     <h1>Count: {counterVal}</h1>
-    <button onClick={handleDecrement}>Increment</button>
+    <button onClick={handleIncerment}>Increment</button>
     <button onClick={handleDecrement}>Decrement</button>
 
     </> 
